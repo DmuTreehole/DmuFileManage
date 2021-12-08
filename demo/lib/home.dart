@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'file.dart';
 import 'user.dart';
 class Home extends StatefulWidget {
@@ -30,6 +31,38 @@ class _HomeState extends State<Home> {
         index:_index,
         children:_homeWidgets,
       ),
+      drawer: Drawer(
+        child: ListView(
+          children: <Widget>[
+            UserAccountsDrawerHeader(
+              accountName: new Text("赵大卷"), 
+              accountEmail: new Text("zxy@163.com"),
+              currentAccountPicture: new CircleAvatar(
+                backgroundImage: new AssetImage(
+                  "assets/images/1.jpg"
+                ),
+              ),
+              otherAccountsPictures: <Widget>[
+                new Container(
+                  child: Image.asset('images/2.png'))
+              ],
+              ),
+              ListTile(
+                leading:new CircleAvatar(child: Icon(Icons.color_lens)),
+                title: Text("我的班级"),
+              ),
+              ListTile(
+                leading:new CircleAvatar(child: Icon(Icons.photo)),
+                title: Text("我的信息"),
+              ),
+              ListTile(
+                leading: new CircleAvatar(child: Icon(Icons.wifi),),
+                title: Text('连接校园网'),
+              )
+          ],
+
+        )
+        ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         currentIndex: _index,
@@ -41,20 +74,4 @@ class _HomeState extends State<Home> {
       ),
     );
   }
-//   BottomNavigationBarItem _getBottomNavItem(String title,String normalIcon,String pressedIcon,int index){
-//     return BottomNavigationBarItem(
-//       icon: _index==index?Image.asset(
-//         pressedIcon,
-//         width: 32,
-//         height: 28,
-//         )
-//       :Image.asset(
-//         normalIcon,
-//         width: 32,
-//         height: 28,
-//       ),
-//       label: title,
-//     );
-//   }
-// 
 }

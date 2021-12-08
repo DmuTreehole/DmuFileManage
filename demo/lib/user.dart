@@ -4,8 +4,16 @@ class UserWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text('用户界面'),
+    return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){
+        },
+        child: const Icon(Icons.add),
+        foregroundColor: Colors.white,
+        backgroundColor: Colors.blue,
+        shape: CircleBorder(),
+        isExtended: false,
+      )
     );
   }
 }
